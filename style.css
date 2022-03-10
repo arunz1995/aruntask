@@ -1,0 +1,44 @@
+.background-container {
+  max-width: 400px;
+  height: 525px;
+  background-color: #d8d8d3;
+  margin: auto;
+  margin-top: 80px;
+  padding: 10px;
+  box-shadow: 4px 4px 15px 14px rgba(0, 0, 0, 0.15),
+    -4px -4px 20px 4px rgba(255, 255, 255, 0.2);
+}
+body {
+  background-color: #e6e6e6;
+}
+.number-container {
+  text-align: right;
+  width: 389px;
+  height: 70px;
+  background-color: white;
+  margin: 80 px auto;
+  padding: 12px 6px;
+  font-size: 35px;
+}
+.control-function {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 14px;
+  padding-top: 10px;
+}
+button {
+  border: none;
+  height: 92px;
+  font-size: 30px;
+}
+.input-container {
+  font-size: 16px;
+}
+.green-text {
+  color: green;
+  background-color: rgb(206, 206, 186);
+}
+.red-text {
+  color: red;
+  background-color: rgb(213, 226, 226);
+}
