@@ -4,11 +4,29 @@ var outputString="";
 var operantsArray=[];
 var operatorsArray=[];
 var isLastOperator=true;
+var isLastAnswer=false;
 for(var i=0; i<buttons.length;i++){
     buttons[i].addEventListener("click",callAction);
 }
+document.getElementsByClassName("reset-button")[0].addEventListener("click",restAll);
+function restAll(){
+   inputString="";
+   outputString="";
+   operantsArray=[];
+   operatorsArray=[];
+   isLastOperator=true; 
+   isLastAnswer=false;
+   printInput();
+   printOutput(); 
+}
 function callAction(event){
     var button=event.target;
+    button.style.backgroundColor="black";
+    button.style.color ="white";
+    setTimeout( function(){
+    button.style.backgroundColor=null;
+    button.style.color =null;
+    },300)
     var value=button.innerHTML;
     var actionType=button.classList[0] === "red-text"?"operator":"operant";
     if(value === "=")
@@ -42,6 +60,7 @@ function addInput(actionType,value){
         isLastOperator = true;
         return true
     }
+    if(isLastAnswer)restAll()
     if(isLastOperator){
         operantsArray.push(value)
         isLastOperator = false;
@@ -62,7 +81,9 @@ function calculateAnswer(){
             }
         }
     }
+    isLastAnswer = true;
     outputString = operantsArray[0];
+    inputString = operantsArray[0];
 }
 function performAction(index){
     var result = 0;
